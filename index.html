@@ -14,7 +14,29 @@
   <meta property="og:type" content="website" />
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">
+    // Project Category Filtering
+    function filterProjects(category, btnElement) {
+      document.querySelectorAll('.project-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+        btn.classList.add('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+      });
+      if (btnElement) {
+        btnElement.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+        btnElement.classList.remove('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+      }
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+  </script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -44,6 +66,28 @@
         }
       }
     }
+  
+    // Project Category Filtering
+    function filterProjects(category, btnElement) {
+      document.querySelectorAll('.project-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+        btn.classList.add('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+      });
+      if (btnElement) {
+        btnElement.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+        btnElement.classList.remove('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+      }
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
   </script>
 
   <!-- Google Fonts: Inter -->
@@ -1122,185 +1166,468 @@
     </div>
   </section>
 
-  <!-- Delivered Portfolio Showcase (30+ Applications) -->
+    <!-- Delivered Portfolio Showcase (15+ Production Applications) -->
   <section id="portfolio" class="py-20 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-10">
         <h2 class="text-xs uppercase tracking-widest font-bold text-brand-600 dark:text-brand-400">
-          Proven Track Record
+          Commercial Track Record
         </h2>
         <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Delivered Portfolio (30+ Applications)
+          Delivered Portfolio (15+ Production Applications)
         </h3>
         <p class="text-base text-slate-600 dark:text-slate-400">
-          A selected gallery of high-scale mobile and IoT solutions engineered across diverse industries.
+          Commercial and enterprise mobile solutions engineered across Automotive, Connected EV, FinTech, Hospitality, and Logistics.
         </p>
       </div>
 
-      <!-- Portfolio Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- App 1: TVS Connect -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-motorcycle"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">TVS Connect & Bike Companion</h4>
-            <p class="text-xs text-brand-600 dark:text-brand-400 font-medium mt-0.5">Automotive & Connected EV</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              Smartphone-to-cluster map mirroring, BLE live telemetry, and turn-by-turn navigation for two-wheeler vehicles.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>ICE & EV Vehicles</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">BLE / GPS</span>
-          </div>
-        </div>
-
-        <!-- App 2: serVme -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-utensils"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">serVme</h4>
-            <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">Hospitality & IoT (Denmark)</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              Automated customer entry/exit tracking using calibrated iBeacon hardware proximity detection in Denmark.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Denmark Deployment</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">iBeacon BLE</span>
-          </div>
-        </div>
-
-        <!-- App 3: Agrosiaa -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-wheat-awn"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">Agrosiaa</h4>
-            <p class="text-xs text-amber-600 dark:text-amber-400 font-medium mt-0.5">AgriTech E-Commerce</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              Multi-parameter agricultural catalog filtering, localized logistics, cart management, and community analytics.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Rural & Urban India</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">E-Commerce</span>
-          </div>
-        </div>
-
-        <!-- App 4: Heroes Comic Engine -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-book-open"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">Heroes (Comic Engine)</h4>
-            <p class="text-xs text-purple-600 dark:text-purple-400 font-medium mt-0.5">Digital Media & Canvas</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              Custom multi-layer smooth 60fps parallax scrolling reader, bitmap pool optimization, and APK expansion (OBB).
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>High Performance UI</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">60fps Canvas</span>
-          </div>
-        </div>
-
-        <!-- App 5: Brinks -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-vault"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">Brinks Enterprise</h4>
-            <p class="text-xs text-rose-600 dark:text-rose-400 font-medium mt-0.5">FinTech & ATM Logistics</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              Digitized field ATM cash-replenishment workflows with tamper-proof audit trails and offline transaction syncing.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Enterprise Security</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">Offline-First</span>
-          </div>
-        </div>
-
-        <!-- App 6: SaferWays -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-route"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">SaferWays</h4>
-            <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">Route Safety & Analytics</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              European route safety & crime analytics application evaluating real-time travel risk parameters.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>European Deployment</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">Geospatial</span>
-          </div>
-        </div>
-
-        <!-- App 7: NCL Learning & Analytics -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-ship"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">NCL Learning Engine</h4>
-            <p class="text-xs text-indigo-600 dark:text-indigo-400 font-medium mt-0.5">Maritime Cruise Platform</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              Zero-connectivity offline interactive employee training engine for maritime crews with post-docking sync.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Maritime & Cruise</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">OBB / SQLite</span>
-          </div>
-        </div>
-
-        <!-- App 8: Gotax Record Keeping -->
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-500 flex items-center justify-center font-bold text-lg mb-3">
-              <i class="fa-solid fa-receipt"></i>
-            </div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base">Gotax (Australia)</h4>
-            <p class="text-xs text-teal-600 dark:text-teal-400 font-medium mt-0.5">FinTech & Tax Deduction</p>
-            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-              Australian tax deduction record-keeping and receipt parsing application powered by local SQLite persistence.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Australia Deployment</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-300">FinTech</span>
-          </div>
-        </div>
-
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <button type="button" onclick="filterProjects('all', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-brand-600 text-white shadow-md shadow-brand-500/20">
+          All Projects (15)
+        </button>
+        <button type="button" onclick="filterProjects('automotive', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300">
+          <i class="fa-solid fa-car mr-1 text-cyan-500"></i> Automotive & Connected EV (2)
+        </button>
+        <button type="button" onclick="filterProjects('fintech', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300">
+          <i class="fa-solid fa-vault mr-1 text-emerald-500"></i> FinTech & Enterprise (3)
+        </button>
+        <button type="button" onclick="filterProjects('hospitality', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300">
+          <i class="fa-solid fa-utensils mr-1 text-rose-500"></i> Hospitality & Social (4)
+        </button>
+        <button type="button" onclick="filterProjects('logistics', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300">
+          <i class="fa-solid fa-truck mr-1 text-amber-500"></i> Logistics & AgriTech (2)
+        </button>
+        <button type="button" onclick="filterProjects('media', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300">
+          <i class="fa-solid fa-layer-group mr-1 text-purple-500"></i> Media, Safety & EdTech (4)
+        </button>
       </div>
 
-      <!-- Additional Delivered Apps Pill Cloud -->
-      <div class="mt-10 p-6 rounded-2xl bg-slate-100/60 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 text-center">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-3">
-          Additional Commercial Apps Delivered (30+ Applications Total)
-        </span>
-        <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
-          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Felezz (Indian Export Logistics)</span>
-          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">WineList</span>
-          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Aleet (Professional Networking)</span>
-          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Drinkster (Denmark Hospitality Deals)</span>
-          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Magzyn</span>
-          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">LawApp (US Legal Video Subscriptions)</span>
+      <!-- Portfolio Grid (All 15 Projects) -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- 1. TVS Connect -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="automotive">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                Automotive & Connected EV
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇮🇳 India</span> • #1
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">TVS Connect</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Contributed to the design and delivery of connected mobility solutions for TVS Connect, integrating vehicle telemetry, real-time data synchronization, and user-centric mobile experiences for ICE as well as EV customers.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Vehicle Telemetry</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Real-Time Sync</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">ICE & EV</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android & Connected Vehicle</span>
+            <a href="https://play.google.com/store/apps/details?id=com.tvsm.connect" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-brands fa-google-play"></i>
+              <span>Play Store</span>
+            </a>
+          </div>
         </div>
+
+        <!-- 2. Bike Companion (GEM) -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="automotive">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                Automotive & Connected EV
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇮🇳 India</span> • #2
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Bike Companion (GEM)</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Led the delivery of GEM, a connected mobility application featuring map mirroring between smartphone and vehicle displays for a unified navigation experience. Collaborated across teams to ensure reliable connectivity, performance, and seamless user experience across platforms.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Map Mirroring</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Cluster Display</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Turn-by-Turn</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Smartphone-to-Cluster</span>
+            <a href="https://play.google.com/store/search?q=Ampere%20connect&c=apps" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-brands fa-google-play"></i>
+              <span>Play Store</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. SaferWays -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="media">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                Route Safety & Analytics
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇪🇺 Europe</span> • #3
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">SaferWays</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              This iOS application is used to find safe ways to travel in European countries. The application features comprehensive statistics on crime and theft that occurred on specific routes, and empowers users to report incidents in real time.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">iOS Native</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Crime Analytics</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Geospatial Risk</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Native iOS App</span>
+            <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">European Deployment</span>
+          </div>
+        </div>
+
+        <!-- 4. WineList -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="hospitality">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+                Hospitality & Booking
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>Multi-City</span> • #4
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">WineList</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              A comprehensive system where users discover and book exclusive drink merchants within their city. Merchants manage menus, pricing, and promotional offers. Features Android & iOS customer applications plus a dedicated Android application for Merchants.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Android & iOS</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Merchant Portal</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Drink Booking</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Customer & Merchant Apps</span>
+            <span class="text-xs font-semibold text-rose-600 dark:text-rose-400">Multi-Platform</span>
+          </div>
+        </div>
+
+        <!-- 5. Aleet -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="hospitality">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                Professional Networking
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇮🇳 Global</span> • #5
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Aleet</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              A social networking platform for professionals to get connected and publish posts that peers can like, comment on, and share. Users can follow colleagues, build networks, and send direct messages in real time.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Social Graph</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Direct Messaging</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Feed Engine</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android Platform</span>
+            <a href="https://play.google.com/store/apps/details?id=com.mobile.in.aleet&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-brands fa-google-play"></i>
+              <span>Play Store</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Brinks -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="fintech">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                FinTech & Cash Logistics
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇮🇳 India</span> • #6
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Brinks</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Enterprise mobility solution used by cash logistics teams to replenish ATMs across rural and urban India. Replaced manual paperwork by converting transaction recording, vault validation, and audit tracking into a high-security offline-capable mobile workflow.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">ATM Cash Logistics</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Offline Audit Trails</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Enterprise Security</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Enterprise Android Fleet</span>
+            <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Rural & Urban India</span>
+          </div>
+        </div>
+
+        <!-- 7. NCL -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="media">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20">
+                Enterprise EdTech & Analytics
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>Maritime / Cruise</span> • #7
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">NCL Training Engine</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Offline-first enterprise learning application for organizational staff. Operates with zero dependency on the internet once data is synced, storing coursework offline, recording granular user learning behaviors, and syncing analytics upon reconnection.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Zero Internet Mode</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">OBB Large Media</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Behavior Analytics</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Maritime / Cruise Training</span>
+            <span class="text-xs font-semibold text-teal-600 dark:text-teal-400">Offline-First</span>
+          </div>
+        </div>
+
+        <!-- 8. Agrosiaa -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="logistics">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                AgriTech & Community Analytics
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇮🇳 India</span> • #8
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Agrosiaa</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Agricultural platform created for farming communities to collect member crop, soil, and yield data and perform automated analytical reporting, empowering farmers with communal data insights, catalog filtering, and localized logistics.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Community Analytics</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Agri-Commerce</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Field Data Engine</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android Application</span>
+            <span class="text-xs font-semibold text-amber-600 dark:text-amber-400">AgriTech</span>
+          </div>
+        </div>
+
+        <!-- 9. Felezz -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="logistics">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                Logistics & Export Trade
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇮🇳 India</span> • #9
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Felezz</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Comprehensive logistics platform tailored for corporate and individual users who export merchandise and freight from India, offering end-to-end shipment tracking, export documentation management, and freight coordination.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Export Logistics</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Freight Tracking</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Corporate Trade</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android Application</span>
+            <a href="https://play.google.com/store/apps/details?id=com.felezz" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-brands fa-google-play"></i>
+              <span>Play Store</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 10. Heroes -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="media">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                Media & Parallax Engine
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>Global</span> • #10
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Heroes (Digital Comic)</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              A pioneering digital comic application enabling readers to experience comics as a continuous, multi-layer parallax scroll. Overcame severe Android bitmap memory limits and utilized APK Expansion Files (OBB) to bring comics to life at smooth 60fps.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">60fps Canvas</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Parallax Scrolling</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">OBB Asset Packs</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Custom Graphics Engine</span>
+            <span class="text-xs font-semibold text-purple-600 dark:text-purple-400">High Performance</span>
+          </div>
+        </div>
+
+        <!-- 11. Magzyn -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="media">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                Digital Publishing
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>Global</span> • #11
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Magzyn</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Digital magazine distribution platform where users can browse, purchase, and subscribe to a wide catalog of digital magazines, featuring interactive reading views and subscription lifecycle management.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Digital Publishing</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">In-App Purchases</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Magazine Subscriptions</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android Application</span>
+            <span class="text-xs font-semibold text-purple-600 dark:text-purple-400">E-Publishing</span>
+          </div>
+        </div>
+
+        <!-- 12. serVme -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="hospitality">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+                Hospitality & Proximity IoT
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇱🇧 Lebanon & 🇩🇰 Denmark</span> • #12
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">serVme</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Hospitality platform designed for guests to find and book top venues and dining destinations, augmented with automated iBeacon hardware tracking to accurately detect entry and dwell times for personalized venue hospitality.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">iBeacon Tracking</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Venue Discovery</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Guest Experience</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Hospitality Platform</span>
+            <a href="https://play.google.com/store/apps/details?id=com.servme" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline">
+              <i class="fa-brands fa-google-play"></i>
+              <span>Play Store</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 13. Gotax Record Keeping -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="fintech">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                FinTech & Tax Deduction
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇦🇺 Australia</span> • #13
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Gotax Record Keeping</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              A specialized "on hand" tool for individual Australian Taxpayers ensuring they have all required documentation to make deductible expense claims. Delivered full offline availability through high-performance local SQLite storage.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Australian Tax Rules</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Offline SQLite DB</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Receipt Vault</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android Application</span>
+            <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Australia FinTech</span>
+          </div>
+        </div>
+
+        <!-- 14. Drinkster -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="hospitality">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+                Nightlife & Hospitality Deals
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇩🇰 Denmark</span> • #14
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Drinkster</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Citywide discovery and deal application across Denmark for cocktails, bottles, and beers. Users review bar atmospheres, music genres, crowd vibes, menus, and photo galleries, locate nearby deals on interactive maps, and purchase promotions directly in-app.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">In-App Deal Buying</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Map Discovery</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Venue Atmosphere</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android & iOS</span>
+            <span class="text-xs font-semibold text-rose-600 dark:text-rose-400">Denmark Cities</span>
+          </div>
+        </div>
+
+        <!-- 15. LawApp -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all" data-category="media">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                Legal EdTech & Video
+              </span>
+              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+                <span>🇺🇸 United States</span> • #15
+              </span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">LawApp</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              An educational legal assistance platform helping citizens understand United States laws through curated video updates and legal guides. Supported subscription-based access and local video downloading for offline viewing.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">US Legal Modules</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Video Downloads</span>
+              <span class="px-2 py-0.5 text-[11px] rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Subscription Tiering</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Android & iOS</span>
+            <span class="text-xs font-semibold text-purple-600 dark:text-purple-400">United States Legal</span>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -1489,7 +1816,7 @@
           </div>
         </div>
 
-        <!-- Section: Key Engineering Challenges & Flagships -->
+                <!-- Section: Key Engineering Challenges & Flagships -->
         <div class="space-y-4">
           <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
             Key Engineering Challenges & Flagship Deliveries
@@ -1499,7 +1826,61 @@
             <p><strong>2. TVS Connect & Bike Companion — GEM (Automotive & EV — Map Mirroring & Telemetry):</strong> Architected and delivered connected-mobility platforms for ICE and EV riders, engineering real-time smartphone-to-vehicle instrument cluster map mirroring, low-latency turn-by-turn navigation streaming, live GPS/vehicle telemetry tracking, and resilient BLE connectivity under strict background execution and battery constraints.</p>
             <p><strong>3. serVme — Hospitality & Automated Proximity Tracking (Travel & Dining — Denmark):</strong> Integrated iBeacon hardware proximity detection for a Denmark hospitality deployment to accurately track customer entry and exit events in real time, overcoming background BLE scanning and signal-filtering challenges.</p>
             <p><strong>4. NCL & Gotax Record Keeping (Enterprise Learning & FinTech):</strong> Built offline-first enterprise training (NCL) with user behavior analytics and an Australian tax deduction record-keeping app (Gotax) powered by local SQLite persistence.</p>
-            <p><strong>5. AI-Driven Static Website Development & Deployment (Recent Initiative):</strong> Designed, developed, and deployed responsive static websites end-to-end using Google Antigravity and modern AI development workflows, translating mobile UI/UX expertise into fast, production-ready web deployments.</p>
+            <p><strong>5. AI-Driven Static Website Development & Deployment:</strong> Designed, developed, and deployed responsive static websites end-to-end using Google Antigravity and modern AI development workflows, translating mobile UI/UX expertise into fast, production-ready web deployments.</p>
+          </div>
+        </div>
+
+        <!-- Section: Comprehensive Delivered Projects Directory (15+ Production Apps) -->
+        <div class="space-y-4 pt-2">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+            Comprehensive Delivered Project Portfolio (15 Production Platforms)
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700 dark:text-slate-300">
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>1. TVS Connect (Automotive & Connected EV):</strong> Vehicle telemetry, real-time sync, ICE & EV mobile experience. <a href="https://play.google.com/store/apps/details?id=com.tvsm.connect" target="_blank" class="text-brand-600 dark:text-brand-400 font-semibold underline">Play Store</a>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>2. Bike Companion - GEM (Automotive & EV):</strong> Map mirroring between smartphone and vehicle cluster display. <a href="https://play.google.com/store/search?q=Ampere%20connect&c=apps" target="_blank" class="text-brand-600 dark:text-brand-400 font-semibold underline">Play Store</a>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>3. SaferWays (iOS Europe):</strong> Safe route planning with European route crime/theft incident statistics and reporting.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>4. WineList (Android & iOS):</strong> Citywide merchant booking system with customer & merchant menu management.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>5. Aleet (Professional Networking):</strong> Social feed, messaging, and peer connection platform. <a href="https://play.google.com/store/apps/details?id=com.mobile.in.aleet&hl=en" target="_blank" class="text-brand-600 dark:text-brand-400 font-semibold underline">Play Store</a>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>6. Brinks (FinTech & ATM Mobility):</strong> ATM field cash replenishment workflows across urban/rural India with offline transaction syncing.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>7. NCL (Maritime Cruise EdTech):</strong> Zero-internet offline interactive employee learning platform and user analytics.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>8. Agrosiaa (AgriTech Community):</strong> Farming community data collection, yield analysis, and agricultural e-commerce.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>9. Felezz (Logistics & Trade):</strong> Export platform for corporate and individuals exporting goods from India. <a href="https://play.google.com/store/apps/details?id=com.felezz" target="_blank" class="text-brand-600 dark:text-brand-400 font-semibold underline">Play Store</a>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>10. Heroes (Graphics & Comic Engine):</strong> 60fps continuous multi-layer parallax scrolling digital comic reader with OBB support.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>11. Magzyn (Digital Publishing):</strong> Magazine reader app with digital subscriptions, purchase flows, and edition browsing.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>12. serVme (Hospitality & BLE):</strong> Venue discovery and automated iBeacon guest entry/exit tracking. <a href="https://play.google.com/store/apps/details?id=com.servme" target="_blank" class="text-brand-600 dark:text-brand-400 font-semibold underline">Play Store</a>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>13. Gotax Record Keeping (Australia):</strong> Tax deduction claims helper with local SQLite DB for instant offline availability.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong>14. Drinkster (Denmark Nightlife):</strong> Bar discovery, ambiance guides, and in-app cocktail/bottle deal buying across Denmark.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 md:col-span-2">
+              <strong>15. LawApp (US Legal Video Education):</strong> Video subscription platform helping users understand US legal statutes with offline video downloads.
+            </div>
           </div>
         </div>
 
@@ -1883,6 +2264,28 @@
       const fullText = `Name: ${name}\nEmail: ${email}\nTopic/Role: ${roleType}\n\nMessage:\n${message}`;
       copyToClipboard(fullText, 'Inquiry text copied to clipboard!');
     }
+  
+    // Project Category Filtering
+    function filterProjects(category, btnElement) {
+      document.querySelectorAll('.project-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+        btn.classList.add('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+      });
+      if (btnElement) {
+        btnElement.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+        btnElement.classList.remove('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+      }
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
   </script>
 </body>
 </html>
