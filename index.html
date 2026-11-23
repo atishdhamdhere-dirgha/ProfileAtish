@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atish Bhimrao Dhamdhere | Technical Lead & Solution Architect</title>
+  <meta name="description" content="Portfolio & Resume of Atish Bhimrao Dhamdhere - Technical Lead & Solution Architect with 14+ years experience in Android, Connected Mobility, IoT, Real-time Systems, and AI-Native Engineering." />
+  <meta name="keywords" content="Atish Dhamdhere, Technical Lead, Solution Architect, Android, Connected Mobility, IoT, Automotive, EV, Kotlin, GraphQL, WebSockets, Resume" />
+  <meta name="author" content="Atish Bhimrao Dhamdhere" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Atish Bhimrao Dhamdhere - Technical Lead & Solution Architect" />
+  <meta property="og:description" content="14+ years experience designing, building, and scaling 30+ mobile and connected-mobility applications." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+              800: '#155e75',
+              900: '#164e63',
+            },
+            accent: {
+              500: '#6366f1',
+              600: '#4f46e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons & FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Custom Styling & Utilities */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .code-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+    }
+    .dark .glass-card {
+      background: rgba(17, 24, 39, 0.75);
+      border: 1px solid rgba(55, 65, 81, 0.6);
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .dark .glass-nav {
+      background: rgba(15, 23, 42, 0.88);
+    }
+    .radial-bg {
+      background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 80%);
+    }
+    .dark .radial-bg {
+      background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.22) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 80%);
+    }
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
+    }
+    .timeline-dot {
+      box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700 dark:border-slate-300">
+    <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"></i>
+    <span id="toast-message" class="text-sm font-medium">Message</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-slate-200/80 dark:border-slate-800/80 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Name -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
+          AD
+        </div>
+        <div>
+          <div class="font-bold text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
+            Atish Dhamdhere
+          </div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+            Technical Lead & Solution Architect
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" class="hover:text-brand-500 transition-colors">About</a>
+        <a href="#highlights" class="hover:text-brand-500 transition-colors">Flagship Architecture</a>
+        <a href="#experience" class="hover:text-brand-500 transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-brand-500 transition-colors">Competencies</a>
+        <a href="#portfolio" class="hover:text-brand-500 transition-colors">Portfolio</a>
+        <a href="#resume-section" class="hover:text-brand-500 transition-colors flex items-center gap-1.5 font-semibold text-brand-600 dark:text-brand-400">
+          <i class="fa-solid fa-file-pdf"></i> Resume
+        </a>
+        <a href="#contact" class="hover:text-brand-500 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right CTAs & Theme Toggle -->
+      <div class="flex items-center gap-3">
+        <!-- Theme Switcher -->
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+          <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Direct Download Resume Button -->
+        <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" download="Atish_Bhimrao_Dhamdhere_Resume.pdf" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all">
+          <i class="fa-solid fa-download"></i>
+          <span>Download Resume</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+          <i id="menu-icon" class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
+      <div class="flex flex-col space-y-3 pt-2 text-base font-medium">
+        <a href="#about" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+        <a href="#highlights" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Flagship Architecture</a>
+        <a href="#experience" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
+        <a href="#skills" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Competencies</a>
+        <a href="#portfolio" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Portfolio</a>
+        <a href="#resume-section" class="mobile-nav-link py-2 px-3 rounded-lg bg-brand-50 dark:bg-brand-950/50 text-brand-600 dark:text-brand-400 font-semibold flex items-center justify-between">
+          <span><i class="fa-solid fa-file-pdf mr-2"></i> Resume & PDF Attachment</span>
+          <span class="text-xs px-2 py-0.5 rounded bg-brand-500 text-white font-mono">188 KB</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex gap-2">
+          <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" download="Atish_Bhimrao_Dhamdhere_Resume.pdf" class="flex-1 py-2.5 rounded-xl text-center text-sm font-semibold bg-brand-600 text-white flex items-center justify-center gap-2">
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden radial-bg">
+    <!-- Decorative Ambient Lights -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-brand-400/20 via-indigo-500/20 to-teal-400/20 blur-3xl pointer-events-none rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold badge-glow">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Immediate Joiner — Open to Technical Lead, Solution Architect & Senior IC Roles</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+            Engineering Mobile & <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-cyan-500 to-indigo-600 dark:from-brand-400 dark:via-cyan-300 dark:to-indigo-400">Connected Mobility</span> Ecosystems
+          </h1>
+
+          <!-- Tagline & Roles -->
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-medium">
+            <span class="font-bold text-slate-900 dark:text-white">Atish Bhimrao Dhamdhere</span> — Technical Lead & Solution Architect with <span class="text-brand-600 dark:text-brand-400 font-bold">14+ years</span> designing, architecting, and delivering <span class="text-brand-600 dark:text-brand-400 font-bold">30+ production applications</span> across Android, Connected Mobility (Automotive & EV), and Real-time Systems.
+          </p>
+
+          <!-- Core Value Bullet Points -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300 pt-2">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-microchip text-brand-500"></i>
+              <span>Hardware & Vehicle Cluster Map Mirroring</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-code-merge text-indigo-500"></i>
+              <span>APK Reverse-Eng & Complex App Mergers</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-bolt text-amber-500"></i>
+              <span>Real-Time GraphQL / WebSockets & BLE</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-brain text-emerald-500"></i>
+              <span>AI-Native Engineering (Copilot, Gemini, Antigravity)</span>
+            </div>
+          </div>
+
+          <!-- Primary Actions -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <!-- Download Button -->
+            <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" download="Atish_Bhimrao_Dhamdhere_Resume.pdf" class="px-6 py-3.5 rounded-xl font-semibold bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white shadow-lg shadow-brand-500/25 hover:shadow-xl hover:shadow-brand-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-2.5 text-base">
+              <i class="fa-solid fa-file-arrow-down text-lg"></i>
+              <span>Download Official Resume</span>
+              <span class="text-xs bg-white/20 px-2 py-0.5 rounded font-mono">PDF</span>
+            </a>
+
+            <!-- View In-Browser Resume -->
+            <a href="#resume-section" class="px-6 py-3.5 rounded-xl font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-400 text-slate-800 dark:text-slate-200 shadow-sm hover:shadow transition-all flex items-center gap-2.5 text-base">
+              <i class="fa-solid fa-eye text-brand-500"></i>
+              <span>View Interactive Resume</span>
+            </a>
+
+            <!-- Contact Link -->
+            <a href="#contact" class="px-5 py-3.5 rounded-xl font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-2">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Contact</span>
+            </a>
+          </div>
+
+          <!-- Quick Contact Meta -->
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs text-slate-500 dark:text-slate-400">
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid fa-location-dot text-rose-500"></i> Pune, Maharashtra, India
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid fa-phone text-emerald-500"></i> +91 80879 98486
+            </span>
+            <a href="mailto:atish.dhamdhere@gmail.com" class="flex items-center gap-1.5 hover:text-brand-500 transition-colors">
+              <i class="fa-solid fa-envelope text-brand-500"></i> atish.dhamdhere@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/atish-dhamdhere" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-brand-500 transition-colors">
+              <i class="fa-brands fa-linkedin text-blue-600"></i> linkedin.com/in/atish-dhamdhere
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual / Interactive Snapshot Card -->
+        <div class="lg:col-span-5">
+          <div class="relative mx-auto max-w-md">
+            
+            <!-- Glow background -->
+            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-500 via-indigo-500 to-purple-600 opacity-30 blur-xl"></div>
+            
+            <div class="relative glass-card rounded-2xl p-6 sm:p-8 shadow-2xl">
+              
+              <!-- Profile Header inside card -->
+              <div class="flex items-start justify-between border-b border-slate-200 dark:border-slate-800 pb-5">
+                <div>
+                  <div class="text-xs uppercase tracking-wider font-bold text-brand-600 dark:text-brand-400">
+                    Executive Profile
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-0.5">
+                    Atish Dhamdhere
+                  </h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    14+ Years Enterprise Engineering
+                  </p>
+                </div>
+                <div class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold">
+                  Active Candidate
+                </div>
+              </div>
+
+              <!-- Stats Grid -->
+              <div class="grid grid-cols-2 gap-4 py-5 border-b border-slate-200 dark:border-slate-800">
+                <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                  <div class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 code-font">14+</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Years Experience</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                  <div class="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 code-font">30+</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Apps Shipped</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                  <div class="text-2xl font-extrabold text-teal-600 dark:text-teal-400 code-font">6+ Yrs</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Lead @ Dentsu</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                  <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 code-font">0 Days</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Notice Period</div>
+                </div>
+              </div>
+
+              <!-- Key Architecture Focus List -->
+              <div class="pt-5 space-y-3">
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  Specialized Engineering Domains
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 text-xs rounded-lg font-medium bg-cyan-50 dark:bg-cyan-950/50 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/50">Automotive & EV</span>
+                  <span class="px-2.5 py-1 text-xs rounded-lg font-medium bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/50">BLE & iBeacon IoT</span>
+                  <span class="px-2.5 py-1 text-xs rounded-lg font-medium bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50">FinTech & POS</span>
+                  <span class="px-2.5 py-1 text-xs rounded-lg font-medium bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">GraphQL & WebSockets</span>
+                  <span class="px-2.5 py-1 text-xs rounded-lg font-medium bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/50">Offline-First Architectures</span>
+                  <span class="px-2.5 py-1 text-xs rounded-lg font-medium bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/50">AI-Assisted CI/CD</span>
+                </div>
+              </div>
+
+              <!-- Quick Attachment Preview Badge -->
+              <div class="mt-6 p-3 rounded-xl bg-slate-900 text-white dark:bg-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-pdf"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-semibold truncate max-w-[170px] sm:max-w-[200px]">Atish_Bhimrao_Dhamdhere_Resume.pdf</div>
+                    <div class="text-[11px] text-slate-400">Official PDF Attached • 188 KB</div>
+                  </div>
+                </div>
+                <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" download="Atish_Bhimrao_Dhamdhere_Resume.pdf" class="p-2 text-slate-300 hover:text-white hover:bg-slate-700 rounded-lg transition-colors" title="Download">
+                  <i class="fa-solid fa-download"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Professional Summary Section -->
+  <section id="about" class="py-20 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-600 dark:text-brand-400">
+          Executive Overview
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          14+ Years of Technical Leadership & Architecture
+        </h3>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+          Operating seamlessly across strategic solution architecture, agile team leadership, and deep hands-on code delivery.
+        </p>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left: Summary Text -->
+        <div class="lg:col-span-7 space-y-6 text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+          <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+              <i class="fa-solid fa-compass-drafting text-brand-500"></i>
+              <span>High-Impact Solutions from Concept to Scale</span>
+            </h4>
+            <p>
+              Hands-on <strong class="text-slate-900 dark:text-white">Technical Lead & Solution Architect</strong> with 14+ years of experience designing, building, and scaling <strong class="text-slate-900 dark:text-white">30+ mobile and connected-mobility applications</strong> across Android, iOS, hybrid, and web platforms.
+            </p>
+            <p>
+              Proven ability to operate seamlessly as a technical leader, solution architect, or hands-on individual contributor—solving complex engineering bottlenecks from <strong>APK reverse-engineering</strong> and <strong>dual Play Store app mergers</strong> to <strong>real-time GraphQL/WebSocket telemetry</strong>, <strong>BLE/iBeacon hardware integration</strong>, and <strong>offline-first architectures</strong>.
+            </p>
+            <p>
+              Passionate mentor and collaborative stakeholder partner dedicated to empowering engineers to grow alongside the organization, leveraging modern <strong class="text-slate-900 dark:text-white">AI-assisted engineering workflows</strong> (Google Antigravity, GitHub Copilot, Claude, ChatGPT, Gemini) to ship high-impact products end-to-end.
+            </p>
+          </div>
+
+          <!-- Highlight Box: Leadership Persona -->
+          <div class="p-6 rounded-2xl bg-gradient-to-r from-brand-500/10 via-indigo-500/10 to-transparent border border-brand-500/20 dark:border-brand-500/30">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex-shrink-0 flex items-center justify-center font-bold text-lg shadow-md">
+                <i class="fa-solid fa-quote-left"></i>
+              </div>
+              <div>
+                <p class="font-medium text-slate-800 dark:text-slate-200 italic">
+                  "Architectural excellence isn't just about clean code—it's about building resilient systems that survive real-world field constraints, low connectivity, hardware telemetry variations, and aggressive business deadlines without missing a beat."
+                </p>
+                <div class="mt-3 text-xs font-bold text-brand-600 dark:text-brand-400">
+                  — Atish B. Dhamdhere
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 4 Pillar Pillars of Expertise -->
+        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+          
+          <div class="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-brand-500/50 transition-all flex gap-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl flex-shrink-0">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <div>
+              <h5 class="font-bold text-slate-900 dark:text-white text-base">Connected Mobility & EV</h5>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Turn-by-turn navigation cluster mirroring, live vehicle GPS telemetry, and resilient BLE streaming.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-brand-500/50 transition-all flex gap-4">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl flex-shrink-0">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <div>
+              <h5 class="font-bold text-slate-900 dark:text-white text-base">Real-Time & Offline First</h5>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">GraphQL subscriptions, WebSockets, APK expansion (OBB), and flawless zero-connectivity sync.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-brand-500/50 transition-all flex gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <h5 class="font-bold text-slate-900 dark:text-white text-base">FinTech & POS Engineering</h5>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">PCI-DSS / P2PE compliance, card-reader terminal drivers, digital wallets, and tokenization.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-brand-500/50 transition-all flex gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl flex-shrink-0">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <h5 class="font-bold text-slate-900 dark:text-white text-base">AI-Native Engineering</h5>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Accelerating unit tests, legacy code refactoring, rapid prototypes with Google Antigravity & Copilot.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Flagship Architectural Deliveries & Engineering Case Studies -->
+  <section id="highlights" class="py-20 radial-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-500/10 border border-brand-500/30 text-brand-600 dark:text-brand-400 text-xs font-semibold">
+          <i class="fa-solid fa-trophy"></i> Flagship Engineering Case Studies
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Complex Engineering Bottlenecks Solved
+        </h3>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+          Proven real-world track record of resolving mission-critical rescues, hardware integrations, and high-stakes migrations.
+        </p>
+      </div>
+
+      <!-- Case Studies Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Case Study 1: TVS Connect & Bike Companion -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                Automotive & Connected EV
+              </span>
+              <i class="fa-solid fa-motorcycle text-xl text-slate-400 group-hover:text-cyan-500 transition-colors"></i>
+            </div>
+            
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+              TVS Connect & Bike Companion (GEM)
+            </h4>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Architected and delivered connected-mobility platforms for ICE and EV two-wheeler riders. Engineered real-time <strong>smartphone-to-vehicle instrument cluster map mirroring</strong>, low-latency turn-by-turn navigation streaming, live GPS/vehicle telemetry tracking, and resilient BLE connectivity under aggressive OS battery optimization constraints.
+            </p>
+
+            <div class="pt-2">
+              <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Tech & Protocols</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Cluster Mirroring</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">BLE 5.0</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Turn-by-Turn GPS</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">EV Telemetry</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
+            <span>Production Deployment</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Case Study 2: Legacy Application Recovery -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+                Enterprise Rescue
+              </span>
+              <i class="fa-solid fa-bug-slash text-xl text-slate-400 group-hover:text-rose-500 transition-colors"></i>
+            </div>
+            
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+              Application Recovery via Reverse Engineering
+            </h4>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Rescued a business-critical enterprise client application after <strong>complete source code loss</strong>. Led the effort by decompiling and reverse-engineering the production APK binary, recovering corrupted business logic, assets, and database schemas, and rebuilding a pristine, modern, maintainable codebase from scratch without production outage.
+            </p>
+
+            <div class="pt-2">
+              <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Tech & Protocols</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">APK Decompilation</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Smali / Bytecode</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Asset Extraction</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Code Re-Architecture</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
+            <span>Zero Data Loss Rescue</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Case Study 3: Dual Play Store Consolidation -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                Enterprise Migration
+              </span>
+              <i class="fa-brands fa-google-play text-xl text-slate-400 group-hover:text-indigo-500 transition-colors"></i>
+            </div>
+            
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+              Dual Play Store App Merger & Consolidation
+            </h4>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Orchestrated the high-risk technical merger of two distinct Play Store Android applications backed by separate databases. Engineered a frictionless <strong>auto-signup and credential migration pipeline</strong>, app-signing keystore transition, and unified UX architecture—delivering zero downtime and zero disruption to hundreds of thousands of users.
+            </p>
+
+            <div class="pt-2">
+              <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Tech & Protocols</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Keystore Migration</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Account Auto-Sync</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">DB Schema Unification</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Zero-Disruption</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
+            <span>Seamless Transition</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Case Study 4: serVme iBeacon Proximity Tracking -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                Hospitality & IoT (Denmark)
+              </span>
+              <i class="fa-solid fa-tower-broadcast text-xl text-slate-400 group-hover:text-emerald-500 transition-colors"></i>
+            </div>
+            
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+              serVme — Automated Proximity Tracking
+            </h4>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Integrated <strong>iBeacon hardware proximity detection</strong> for a Denmark hospitality network to accurately detect and trigger customer entry, table seated, and exit events in real-time. Overcame aggressive Android background BLE scanning restrictions, signal-bounce filtering, and RSSI threshold calibration.
+            </p>
+
+            <div class="pt-2">
+              <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Tech & Protocols</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">iBeacon Protocol</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Background BLE</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">RSSI Filtering</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Event Automation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
+            <span>Denmark Nationwide Rollout</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Case Study 5: Multi-Layer Parallax Comic Engine -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                Graphics & Memory Optimization
+              </span>
+              <i class="fa-solid fa-layer-group text-xl text-slate-400 group-hover:text-amber-500 transition-colors"></i>
+            </div>
+            
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+              Heroes 60fps Parallax Comic Engine
+            </h4>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Engineered a custom multi-layer smooth-scrolling digital comic reader engine with dynamically positioned animated assets and audio cues. Resolved severe Android bitmap memory leaks (OOM), implemented <strong>APK Expansion Files (OBB)</strong> for huge asset payloads, and achieved silky-smooth 60fps rendering across legacy devices.
+            </p>
+
+            <div class="pt-2">
+              <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Tech & Protocols</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Canvas Rendering</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Parallax 60fps</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">OBB Expansion</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Bitmap Pooling</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
+            <span>High Performance UI</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Case Study 6: AI-Native Engineering & CI/CD -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:shadow-xl hover:border-brand-500/40 transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                Modern AI Innovation
+              </span>
+              <i class="fa-solid fa-robot text-xl text-slate-400 group-hover:text-purple-500 transition-colors"></i>
+            </div>
+            
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+              AI-Native Workflows & Rapid Prototyping
+            </h4>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Pioneered the integration of <strong>Google Antigravity, GitHub Copilot, Gemini, and Claude</strong> into daily sprint cycles. Accelerated automated test coverage generation, legacy codebase refactoring, end-to-end static website deployment, and subagent orchestration under enterprise security guardrails.
+            </p>
+
+            <div class="pt-2">
+              <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Tech & Protocols</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Google Antigravity</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Prompt Engineering</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Unit Test Gen</span>
+                <span class="px-2 py-0.5 rounded text-xs bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Rapid PoCs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold">
+            <span>2.5x Velocity Boost</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Career Experience Timeline Section -->
+  <section id="experience" class="py-20 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-3 mb-16">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-600 dark:text-brand-400">
+          Career Track Record
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Professional Leadership Journey
+        </h3>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+          Over a decade and a half of progressive leadership across enterprise agencies, product firms, and consulting.
+        </p>
+      </div>
+
+      <!-- Vertical Timeline -->
+      <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 sm:ml-32 space-y-12">
+        
+        <!-- Role 1: Dentsu Global Services -->
+        <div class="relative pl-8 sm:pl-10 group">
+          <!-- Time indicator on left for larger screens -->
+          <div class="hidden sm:block absolute -left-36 top-1 w-28 text-right">
+            <span class="text-xs font-bold text-brand-600 dark:text-brand-400 block code-font">2020 – 2026</span>
+            <span class="text-[11px] text-slate-400 block">6 yrs 1 mo</span>
+          </div>
+          <!-- Node Dot -->
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 timeline-dot border-2 border-white dark:border-slate-900"></div>
+
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm group-hover:shadow-md transition-shadow">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+              <div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Technical Lead</h4>
+                <div class="text-sm font-semibold text-brand-600 dark:text-brand-400">Dentsu Global Services</div>
+              </div>
+              <span class="sm:hidden text-xs font-bold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 code-font">
+                Nov 2020 – Nov 2026 (6 yrs 1 mo)
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-brand-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Strategic Enterprise Delivery:</strong> Spearheaded architecture, hands-on Kotlin development, and production releases for a flagship client engagement spanning 5+ years, resolving mission-critical pain points via root-cause analysis (RCA).</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-brand-500 mt-1 flex-shrink-0"></i>
+                <span><strong>High-Ownership Production Support & Diagnostics:</strong> Shipped targeted hotfix releases and distributed log-enabled diagnostic builds to isolate and fix critical field issues.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-brand-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Dual Play Store Consolidation:</strong> Merged two separate Android apps with distinct user DBs—engineering seamless auto-signup, account migration, and keystore continuity with zero user disruption.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-brand-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Real-Time Data & Connected Features:</strong> Architected real-time data sync using <strong>GraphQL over WebSockets</strong> for live P360 backend updates, paired with Bluetooth/BLE communication.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-brand-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Agile & AI-Accelerated Delivery:</strong> Led Agile ceremonies via Jira/Asana, PR/MR code reviews on GitHub/GitLab, and embedded AI workflows (Copilot, Gemini, Claude, Antigravity) for rapid prototyping.</span>
+              </li>
+            </ul>
+
+            <div class="mt-4 pt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Kotlin</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">GraphQL / WebSockets</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">BLE</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Clean MVVM</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Google Antigravity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2: Aurus Inc -->
+        <div class="relative pl-8 sm:pl-10 group">
+          <div class="hidden sm:block absolute -left-36 top-1 w-28 text-right">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-400 block code-font">2019 – 2020</span>
+            <span class="text-[11px] text-slate-400 block">1 yr</span>
+          </div>
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 timeline-dot border-2 border-white dark:border-slate-900"></div>
+
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm group-hover:shadow-md transition-shadow">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+              <div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Team Lead</h4>
+                <div class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">Aurus Inc</div>
+              </div>
+              <span class="sm:hidden text-xs font-bold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 code-font">
+                Oct 2019 – Sep 2020 (1 yr)
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-indigo-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Enterprise Payment & POS:</strong> Led the mobile engineering team developing secure Android payment and Point-of-Sale (POS) SDKs for tier-1 retail, strictly complying with <strong>PCI-DSS / P2PE</strong> security and tokenization standards.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-indigo-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Multi-Tender Hardware Integration:</strong> Spearheaded contactless card, digital wallet, QR code, and external EMV card-reader hardware integrations for sub-second checkout speeds.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-indigo-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Delivery Governance:</strong> Coordinated cross-functional releases with backend payment gateways, QA teams, and merchant terminals.</span>
+              </li>
+            </ul>
+
+            <div class="mt-4 pt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PCI-DSS / P2PE</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Mobile POS</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">EMV Terminal Drivers</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Tokenization</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 3: Dirgha Technologies -->
+        <div class="relative pl-8 sm:pl-10 group">
+          <div class="hidden sm:block absolute -left-36 top-1 w-28 text-right">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-400 block code-font">2017 – 2019</span>
+            <span class="text-[11px] text-slate-400 block">2 yrs</span>
+          </div>
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 timeline-dot border-2 border-white dark:border-slate-900"></div>
+
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm group-hover:shadow-md transition-shadow">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+              <div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Senior Software Engineer</h4>
+                <div class="text-sm font-semibold text-cyan-600 dark:text-cyan-400">Dirgha Technologies</div>
+              </div>
+              <span class="sm:hidden text-xs font-bold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 code-font">
+                Oct 2017 – Sep 2019 (2 yrs)
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-cyan-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Scalable Architecture & On-Site Leadership:</strong> Embedded on-site with enterprise clients to translate business requirements into technical specs, wireframes, and production Android apps.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-cyan-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Process Governance:</strong> Enforced agile delivery standards, PR code reviews, and release branch governance across distributed squads using Jira, GitLab, and Bitbucket.</span>
+              </li>
+            </ul>
+
+            <div class="mt-4 pt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Android SDK</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">On-Site Client Consulting</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">GitLab CI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 4: JKT Learning Solutions -->
+        <div class="relative pl-8 sm:pl-10 group">
+          <div class="hidden sm:block absolute -left-36 top-1 w-28 text-right">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-400 block code-font">2016 – 2017</span>
+            <span class="text-[11px] text-slate-400 block">1 yr</span>
+          </div>
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-teal-500 timeline-dot border-2 border-white dark:border-slate-900"></div>
+
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm group-hover:shadow-md transition-shadow">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+              <div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Senior Android Developer</h4>
+                <div class="text-sm font-semibold text-teal-600 dark:text-teal-400">JKT Learning Solutions Pvt Ltd.</div>
+              </div>
+              <span class="sm:hidden text-xs font-bold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 code-font">
+                Oct 2016 – Sep 2017 (1 yr)
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-teal-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Offline-First & Large-Media Engine:</strong> Engineered robust offline data storage and <strong>Android APK Expansion Files (OBB)</strong> for a maritime/cruise training platform with zero internet connectivity.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-teal-500 mt-1 flex-shrink-0"></i>
+                <span><strong>Interactive Learning & Analytics:</strong> Shipped interactive offline learning modules that captured deep user behavior analytics and synced seamlessly upon docking.</span>
+              </li>
+            </ul>
+
+            <div class="mt-4 pt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">OBB Expansion</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">SQLite Offline Sync</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Maritime Cruise Platform</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 5: V3 Data Solution -->
+        <div class="relative pl-8 sm:pl-10 group">
+          <div class="hidden sm:block absolute -left-36 top-1 w-28 text-right">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-400 block code-font">2012 – 2016</span>
+            <span class="text-[11px] text-slate-400 block">4 yrs 3 mos</span>
+          </div>
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 timeline-dot border-2 border-white dark:border-slate-900"></div>
+
+          <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm group-hover:shadow-md transition-shadow">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+              <div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Android Developer</h4>
+                <div class="text-sm font-semibold text-slate-600 dark:text-slate-400">V3 Data Solution</div>
+              </div>
+              <span class="sm:hidden text-xs font-bold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 code-font">
+                Jul 2012 – Sep 2016 (4 yrs 3 mos)
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-slate-400 mt-1 flex-shrink-0"></i>
+                <span><strong>AgriTech E-Commerce (Agrosiaa):</strong> Engineered agricultural e-commerce flows—catalog filtering, cart, regional delivery tracking, and returns analytics.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-slate-400 mt-1 flex-shrink-0"></i>
+                <span><strong>Multi-Layer Parallax Comic Engine (Heroes):</strong> Developed a custom 60fps parallax comic engine, solving severe bitmap memory constraints.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-slate-400 mt-1 flex-shrink-0"></i>
+                <span><strong>Offline Enterprise Mobility (Brinks):</strong> Digitized field cash-replenishment for ATMs across urban and rural India with tamper-resistant audit trails.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-angle-right text-slate-400 mt-1 flex-shrink-0"></i>
+                <span>Progressed from trainee to senior developer over 4+ years, building apps from ground up.</span>
+              </li>
+            </ul>
+
+            <div class="mt-4 pt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Android SDK</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Java</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Brinks Cash Logistics</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Agrosiaa</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Core Competencies & Technical Stack Matrix -->
+  <section id="skills" class="py-20 radial-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-600 dark:text-brand-400">
+          Technical Arsenal
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Core Competencies & Stack Matrix
+        </h3>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+          A deeply verified, battle-tested toolset spanning mobile architecture, IoT hardware, and AI-accelerated delivery.
+        </p>
+      </div>
+
+      <!-- Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Category 1: Mobile & UI Architecture -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-brand-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl">
+            <i class="fa-brands fa-android"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white">Mobile & UI Architecture</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Native Android engineering with modern MVVM, Clean Architecture, and performance optimization.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Kotlin</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Java</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Android SDK</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Android Jetpack</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">ViewModel & Flow</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Room DB</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">WorkManager</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">MVVM / Clean Arch</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Parallax & Canvas</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Unit Testing</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Flutter & React Native Awareness</span>
+          </div>
+        </div>
+
+        <!-- Category 2: Connected Mobility & Hardware -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-brand-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-satellite-dish"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white">Connected Mobility & Hardware</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Vehicular telemetry, cluster display mirroring, and hardware Bluetooth protocols.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Cluster Map Mirroring</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Turn-by-Turn Navigation</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Bluetooth Classic & BLE</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">iBeacon Proximity</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Live GPS Streaming</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Vehicle Telemetry</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Fingerprint Biometrics</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">IoT Integration</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Data, Networking & Real-Time -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-brand-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white">Data, Real-Time & POS</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Real-time protocols, offline synchronization, and PCI-DSS payment compliance.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">GraphQL Subscriptions</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">WebSockets</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">RESTful APIs</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Offline-First Sync</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">SQLite & Room</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">OBB Expansion Files</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Payment Gateways</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">PCI-DSS / P2PE</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Firebase Suite</span>
+          </div>
+        </div>
+
+        <!-- Category 4: AI-Native Engineering -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-brand-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white">AI-Native Engineering</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Augmenting engineering velocity with modern AI agent workflows and LLM orchestration.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Google Antigravity</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">GitHub Copilot</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Claude & Gemini</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Rapid PoC Prototyping</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Automated Unit Testing</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Legacy Code Refactoring</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Static Website Deployment</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <!-- Category 5: Delivery & Leadership -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-brand-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white">Leadership & Delivery Governance</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Cross-functional squad mentorship, agile rituals, and release pipelines.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Agile / Scrum & Kanban</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Sprint Governance</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Jira, Asana, Trello</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Git / GitHub / GitLab</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Branching & PR Reviews</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Technical Strategy</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Team Mentoring</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Keystore Migration</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Play Store Deployment</span>
+          </div>
+        </div>
+
+        <!-- Category 6: Industry Domains -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-brand-500/40 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 dark:text-white">Industry Domains</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Deep multi-sector domain knowledge gained from delivering 30+ client solutions.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Automotive & Electric Vehicles</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Connected Mobility</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Banking & Financial (BFSI)</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Travel & Hospitality</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">E-Commerce & AgriTech</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Enterprise Learning</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">GovTech & Route Safety</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Delivered Portfolio Showcase (30+ Applications) -->
+  <section id="portfolio" class="py-20 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-600 dark:text-brand-400">
+          Proven Track Record
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Delivered Portfolio (30+ Applications)
+        </h3>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+          A selected gallery of high-scale mobile and IoT solutions engineered across diverse industries.
+        </p>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- App 1: TVS Connect -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">TVS Connect & Bike Companion</h4>
+            <p class="text-xs text-brand-600 dark:text-brand-400 font-medium mt-0.5">Automotive & Connected EV</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              Smartphone-to-cluster map mirroring, BLE live telemetry, and turn-by-turn navigation for two-wheeler vehicles.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>ICE & EV Vehicles</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">BLE / GPS</span>
+          </div>
+        </div>
+
+        <!-- App 2: serVme -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">serVme</h4>
+            <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">Hospitality & IoT (Denmark)</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              Automated customer entry/exit tracking using calibrated iBeacon hardware proximity detection in Denmark.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Denmark Deployment</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">iBeacon BLE</span>
+          </div>
+        </div>
+
+        <!-- App 3: Agrosiaa -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-wheat-awn"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">Agrosiaa</h4>
+            <p class="text-xs text-amber-600 dark:text-amber-400 font-medium mt-0.5">AgriTech E-Commerce</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              Multi-parameter agricultural catalog filtering, localized logistics, cart management, and community analytics.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Rural & Urban India</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">E-Commerce</span>
+          </div>
+        </div>
+
+        <!-- App 4: Heroes Comic Engine -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">Heroes (Comic Engine)</h4>
+            <p class="text-xs text-purple-600 dark:text-purple-400 font-medium mt-0.5">Digital Media & Canvas</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              Custom multi-layer smooth 60fps parallax scrolling reader, bitmap pool optimization, and APK expansion (OBB).
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>High Performance UI</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">60fps Canvas</span>
+          </div>
+        </div>
+
+        <!-- App 5: Brinks -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-vault"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">Brinks Enterprise</h4>
+            <p class="text-xs text-rose-600 dark:text-rose-400 font-medium mt-0.5">FinTech & ATM Logistics</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              Digitized field ATM cash-replenishment workflows with tamper-proof audit trails and offline transaction syncing.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Enterprise Security</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">Offline-First</span>
+          </div>
+        </div>
+
+        <!-- App 6: SaferWays -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-route"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">SaferWays</h4>
+            <p class="text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">Route Safety & Analytics</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              European route safety & crime analytics application evaluating real-time travel risk parameters.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>European Deployment</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">Geospatial</span>
+          </div>
+        </div>
+
+        <!-- App 7: NCL Learning & Analytics -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-ship"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">NCL Learning Engine</h4>
+            <p class="text-xs text-indigo-600 dark:text-indigo-400 font-medium mt-0.5">Maritime Cruise Platform</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              Zero-connectivity offline interactive employee training engine for maritime crews with post-docking sync.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Maritime & Cruise</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">OBB / SQLite</span>
+          </div>
+        </div>
+
+        <!-- App 8: Gotax Record Keeping -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:shadow-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-500 flex items-center justify-center font-bold text-lg mb-3">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">Gotax (Australia)</h4>
+            <p class="text-xs text-teal-600 dark:text-teal-400 font-medium mt-0.5">FinTech & Tax Deduction</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              Australian tax deduction record-keeping and receipt parsing application powered by local SQLite persistence.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Australia Deployment</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-300">FinTech</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Additional Delivered Apps Pill Cloud -->
+      <div class="mt-10 p-6 rounded-2xl bg-slate-100/60 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-3">
+          Additional Commercial Apps Delivered (30+ Applications Total)
+        </span>
+        <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Felezz (Indian Export Logistics)</span>
+          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">WineList</span>
+          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Aleet (Professional Networking)</span>
+          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Drinkster (Denmark Hospitality Deals)</span>
+          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Magzyn</span>
+          <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">LawApp (US Legal Video Subscriptions)</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Resume & Attached PDF Viewer Section -->
+  <section id="resume-section" class="py-20 radial-bg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-3 mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-500/10 border border-brand-500/30 text-brand-600 dark:text-brand-400 text-xs font-semibold">
+          <i class="fa-solid fa-paperclip"></i> Official Resume Attachment
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Curriculum Vitae & Document Center
+        </h3>
+        <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          View the complete interactive resume below, or inspect/download the attached official 4-page PDF document.
+        </p>
+      </div>
+
+      <!-- Action & View Controls Bar -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 mb-8 shadow-sm">
+        
+        <!-- Toggle Tabs: Interactive HTML vs PDF Viewer -->
+        <div class="inline-flex p-1 rounded-xl bg-slate-200/80 dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700/60">
+          <button id="btn-show-html" type="button" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm flex items-center gap-2">
+            <i class="fa-solid fa-table-list text-brand-500"></i>
+            <span>Interactive View</span>
+          </button>
+          <button id="btn-show-pdf" type="button" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-2">
+            <i class="fa-solid fa-file-pdf text-rose-500"></i>
+            <span>PDF Document Embed</span>
+          </button>
+        </div>
+
+        <!-- Quick Download & Print Buttons -->
+        <div class="flex items-center gap-3">
+          <button onclick="window.print()" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-400 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-print"></i>
+            <span class="hidden sm:inline">Print / Save as PDF</span>
+          </button>
+
+          <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" download="Atish_Bhimrao_Dhamdhere_Resume.pdf" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-md shadow-brand-500/20 hover:shadow-lg transition-all flex items-center gap-2">
+            <i class="fa-solid fa-download"></i>
+            <span>Download PDF (188 KB)</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- VIEW 1: Interactive Formatted Resume (Default) -->
+      <div id="html-resume-view" class="glass-card rounded-2xl p-6 sm:p-12 shadow-xl space-y-10 border border-slate-200 dark:border-slate-800">
+        
+        <!-- Resume Header -->
+        <div class="border-b border-slate-200 dark:border-slate-800 pb-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              ATISH BHIMRAO DHAMDHERE
+            </h1>
+            <p class="text-base sm:text-lg font-semibold text-brand-600 dark:text-brand-400 mt-1">
+              Technical Lead | Solution Architect | Senior Mobile & Connected Mobility Engineer
+            </p>
+            <div class="mt-3 flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-rose-500"></i> Pune, Maharashtra, India</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-emerald-500"></i> +91 80879 98486</span>
+              <a href="mailto:atish.dhamdhere@gmail.com" class="flex items-center gap-1.5 hover:text-brand-500 transition-colors"><i class="fa-solid fa-envelope text-brand-500"></i> atish.dhamdhere@gmail.com</a>
+              <a href="https://linkedin.com/in/atish-dhamdhere" target="_blank" class="flex items-center gap-1.5 hover:text-brand-500 transition-colors"><i class="fa-brands fa-linkedin text-blue-600"></i> linkedin.com/in/atish-dhamdhere</a>
+            </div>
+          </div>
+          <div class="px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold text-center whitespace-nowrap">
+            <span class="block text-[10px] uppercase tracking-wider text-slate-400">Candidate Status</span>
+            <span>Immediate Joiner</span>
+          </div>
+        </div>
+
+        <!-- Section: Professional Summary -->
+        <div class="space-y-3">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+            Professional Summary
+          </h2>
+          <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            Hands-on <strong>Technical Lead & Solution Architect</strong> with <strong>14+ years of experience</strong> designing, building, and scaling <strong>30+ mobile and connected-mobility applications</strong> across Android, iOS, hybrid, and web platforms. Proven ability to operate seamlessly as a technical leader, solution architect, or hands-on individual contributor—solving complex engineering bottlenecks from APK reverse-engineering and dual Play Store app mergers to real-time GraphQL/WebSocket telemetry, BLE/iBeacon hardware integration, and offline-first architectures. Passionate mentor and collaborative stakeholder partner dedicated to empowering engineers to grow alongside the organization, leveraging modern AI-assisted engineering workflows (Google Antigravity, GitHub Copilot, Claude, ChatGPT, Gemini) to ship high-impact products end-to-end.
+          </p>
+        </div>
+
+        <!-- Section: Core Competencies & Technical Stack -->
+        <div class="space-y-4">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+            Core Competencies & Technical Stack
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong class="text-slate-900 dark:text-white block mb-1">Mobile & UI Architecture:</strong>
+              Kotlin, Java, Android SDK, Android Jetpack (ViewModel, LiveData/Flow, Room, Navigation, WorkManager), MVVM, Clean Architecture, Multi-Layer Canvas/Parallax Rendering, Memory & Battery Optimization, Unit Testing, Awareness of Flutter & React Native
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong class="text-slate-900 dark:text-white block mb-1">Connected Mobility & Hardware:</strong>
+              Smartphone-to-Vehicle Cluster Map Mirroring (Turn-by-Turn Navigation Streaming), Bluetooth / BLE Communication, iBeacon Proximity Tracking, Live GPS & Vehicle Telemetry Tracking, Fingerprint Biometrics, IoT Integration
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong class="text-slate-900 dark:text-white block mb-1">Data, Networking & Real-Time:</strong>
+              GraphQL (Queries & Subscriptions), WebSockets, REST APIs, Offline-First Synchronization, SQLite, Room DB, APK Expansion Files (OBB), Payment Gateways & Mobile POS SDKs (PCI-DSS / P2PE Compliance, Tokenization), Firebase Ecosystem
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong class="text-slate-900 dark:text-white block mb-1">AI-Native Engineering:</strong>
+              AI-Assisted Development Workflows (Google Antigravity, GitHub Copilot, Microsoft Copilot, Claude, ChatGPT, Gemini), Rapid PoC Prototyping, Automated Unit Test Generation, Legacy Code Refactoring, End-to-End Static Website Deployment
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 md:col-span-2">
+              <strong class="text-slate-900 dark:text-white block mb-1">Agile Delivery & Governance:</strong>
+              Agile / Scrum & Kanban (Sprint Planning, Backlog Refinement, Standups, Retrospectives); Jira, Asana, Trello; Git, GitHub, GitLab, Bitbucket (Branching, PR/MR Reviews, Release Tagging); Solution Architecture, Technical Strategy, Team Mentoring, Root Cause Analysis (RCA), Play Store Deployment, Keystore Migration
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Professional Experience -->
+        <div class="space-y-6">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+            Professional Experience
+          </h2>
+
+          <!-- Dentsu -->
+          <div class="border-l-2 border-brand-500 pl-4 space-y-2">
+            <div class="flex flex-wrap items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Technical Lead — Dentsu Global Services</h3>
+              <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 code-font">Nov 2020 – Nov 2026 (6 yrs 1 mo)</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li><strong>Strategic Enterprise Delivery:</strong> Spearheaded architecture, hands-on Kotlin development, and production releases for a flagship client engagement spanning 5+ years, resolving mission-critical client and end-customer pain points through deep root-cause analysis.</li>
+              <li><strong>High-Ownership Production Support & Diagnostics:</strong> Shipped targeted special hotfix releases and distributed log-enabled diagnostic builds to isolate, reproduce, and resolve urgent field issues for the client's end users.</li>
+              <li><strong>Dual Play Store App Consolidation & Migration:</strong> Led the complex technical merger of two separate Play Store Android applications backed by distinct user databases—engineering seamless auto-signup/account migration and app-signing continuity with zero user disruption.</li>
+              <li><strong>Real-Time Data & Connected Features:</strong> Architected real-time data synchronization using GraphQL over WebSockets to stream live P360 backend updates directly to mobile screens, alongside Bluetooth/BLE communication and subscription management workflows.</li>
+              <li><strong>Agile Governance & AI-Accelerated Velocity:</strong> Managed sprint planning, backlog execution, and cross-functional tracking via Jira and Asana; enforced PR/MR code reviews on GitHub/GitLab; embedded AI-native workflows (GitHub Copilot, Claude, ChatGPT, Gemini, Google Antigravity).</li>
+            </ul>
+          </div>
+
+          <!-- Aurus -->
+          <div class="border-l-2 border-indigo-500 pl-4 space-y-2">
+            <div class="flex flex-wrap items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Team Lead — Aurus Inc</h3>
+              <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 code-font">Oct 2019 – Sep 2020 (1 yr)</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li><strong>Enterprise Payment & Mobile POS Engineering:</strong> Led mobile engineering team developing secure Android payment and Point-of-Sale (POS) applications and SDKs for large-scale retail, adhering to PCI-DSS / P2PE security and tokenization standards.</li>
+              <li><strong>Multi-Tender Payment & Terminal Integration:</strong> Spearheaded mobile integrations supporting contactless cards, digital wallets, QR payments, and external card-reader/terminal hardware.</li>
+              <li><strong>Team Leadership:</strong> Mentored developers, conducted security code reviews, and coordinated cross-functional releases with backend payment-gateway teams using Jira and Git.</li>
+            </ul>
+          </div>
+
+          <!-- Dirgha -->
+          <div class="border-l-2 border-cyan-500 pl-4 space-y-2">
+            <div class="flex flex-wrap items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Senior Software Engineer — Dirgha Technologies</h3>
+              <span class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 code-font">Oct 2017 – Sep 2019 (2 yrs)</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li><strong>Scalable System Architecture & Client-Site Leadership:</strong> Designed and delivered scalable mobile architectures while embedded on-site with enterprise clients.</li>
+              <li><strong>Process & Quality Governance:</strong> Enforced agile delivery standards, PR code reviews, and release workflows across distributed teams using Trello, Jira, GitLab, and Bitbucket.</li>
+            </ul>
+          </div>
+
+          <!-- JKT -->
+          <div class="border-l-2 border-teal-500 pl-4 space-y-2">
+            <div class="flex flex-wrap items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Senior Android Developer — JKT Learning Solutions Pvt Ltd.</h3>
+              <span class="text-xs font-semibold text-teal-600 dark:text-teal-400 code-font">Oct 2016 – Sep 2017 (1 yr)</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li><strong>Offline-First & Large-Media Engineering:</strong> Engineered offline data storage, sync engines, and Android APK Expansion Files (OBB) for maritime/cruise training platform.</li>
+              <li><strong>Enterprise Learning & Analytics:</strong> Shipped interactive offline learning modules and user behavior analytics across distributed maritime deployments.</li>
+            </ul>
+          </div>
+
+          <!-- V3 Data Solution -->
+          <div class="border-l-2 border-slate-400 pl-4 space-y-2">
+            <div class="flex flex-wrap items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Android Developer — V3 Data Solution</h3>
+              <span class="text-xs font-semibold text-slate-500 code-font">Jul 2012 – Sep 2016 (4 yrs 3 mos)</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li><strong>AgriTech E-Commerce & Community (Agrosiaa):</strong> Engineered catalog filtering, cart management, regional delivery tracking, and returns lifecycle.</li>
+              <li><strong>Multi-Layer Parallax Comic Engine (Heroes):</strong> Built 60fps parallax scrolling comic engine solving bitmap memory constraints and implementing OBB files.</li>
+              <li><strong>Offline Enterprise Mobility (Brinks):</strong> Digitized field ATM cash-replenishment for urban and rural India with reliable background transaction syncing.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section: Key Engineering Challenges & Flagships -->
+        <div class="space-y-4">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+            Key Engineering Challenges & Flagship Deliveries
+          </h2>
+          <div class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <p><strong>1. Legacy Application Recovery via Reverse Engineering (Enterprise Rescue):</strong> Rescued a business-critical client application after complete source code loss by decompiling and reverse-engineering the production APK, recovering core business logic and assets, and rebuilding a clean, maintainable codebase from scratch.</p>
+            <p><strong>2. TVS Connect & Bike Companion — GEM (Automotive & EV — Map Mirroring & Telemetry):</strong> Architected and delivered connected-mobility platforms for ICE and EV riders, engineering real-time smartphone-to-vehicle instrument cluster map mirroring, low-latency turn-by-turn navigation streaming, live GPS/vehicle telemetry tracking, and resilient BLE connectivity under strict background execution and battery constraints.</p>
+            <p><strong>3. serVme — Hospitality & Automated Proximity Tracking (Travel & Dining — Denmark):</strong> Integrated iBeacon hardware proximity detection for a Denmark hospitality deployment to accurately track customer entry and exit events in real time, overcoming background BLE scanning and signal-filtering challenges.</p>
+            <p><strong>4. NCL & Gotax Record Keeping (Enterprise Learning & FinTech):</strong> Built offline-first enterprise training (NCL) with user behavior analytics and an Australian tax deduction record-keeping app (Gotax) powered by local SQLite persistence.</p>
+            <p><strong>5. AI-Driven Static Website Development & Deployment (Recent Initiative):</strong> Designed, developed, and deployed responsive static websites end-to-end using Google Antigravity and modern AI development workflows, translating mobile UI/UX expertise into fast, production-ready web deployments.</p>
+          </div>
+        </div>
+
+        <!-- Section: Education & Languages -->
+        <div class="space-y-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+            Education & Languages
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong class="text-slate-900 dark:text-white block text-sm">Bachelor of Engineering (B.E.) in Computer Engineering</strong>
+              <div class="text-xs text-brand-600 dark:text-brand-400 font-medium">First Class • Savitribai Phule Pune University</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <strong class="text-slate-900 dark:text-white block text-sm">Diploma in Computer Engineering</strong>
+              <div class="text-xs text-brand-600 dark:text-brand-400 font-medium">First Class • MSBTE</div>
+            </div>
+          </div>
+          <div class="text-xs text-slate-600 dark:text-slate-400">
+            <strong>Languages Spoken:</strong> English (Fluent/Professional), Hindi (Fluent), Marathi (Native)
+          </div>
+        </div>
+
+      </div>
+
+      <!-- VIEW 2: Embedded PDF Document Viewer (Toggled) -->
+      <div id="pdf-resume-view" class="hidden glass-card rounded-2xl p-4 sm:p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4">
+        
+        <div class="flex items-center justify-between px-2">
+          <div class="flex items-center gap-2 text-sm font-semibold text-slate-800 dark:text-slate-200">
+            <i class="fa-solid fa-file-pdf text-rose-500 text-lg"></i>
+            <span>Atish_Bhimrao_Dhamdhere_Resume.pdf</span>
+            <span class="text-xs text-slate-400 font-mono">(188 KB • 4 Pages)</span>
+          </div>
+          <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" target="_blank" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
+            <span>Open in new tab</span>
+            <i class="fa-solid fa-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Embedded PDF Frame -->
+        <div class="w-full h-[750px] sm:h-[880px] rounded-xl overflow-hidden border border-slate-300 dark:border-slate-700 bg-slate-900">
+          <iframe 
+            src="Atish_Bhimrao_Dhamdhere_Resume.pdf" 
+            title="Atish Bhimrao Dhamdhere Resume" 
+            class="w-full h-full border-none"
+          >
+            <!-- Fallback if iframe fails to render PDF on some devices -->
+            <div class="p-8 text-center text-white space-y-4 flex flex-col items-center justify-center h-full">
+              <i class="fa-solid fa-file-pdf text-5xl text-rose-500"></i>
+              <p class="text-lg font-bold">Your browser does not support embedded PDF preview.</p>
+              <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" download class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-download"></i> Download Resume PDF
+              </a>
+            </div>
+          </iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact & Hiring Inquiries Section -->
+  <section id="contact" class="py-20 bg-white dark:bg-slate-900/60 border-t border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold badge-glow">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Immediate Availability
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Let's Discuss Architecture & Opportunities
+        </h3>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+          Open to Technical Lead, Solution Architect, or Senior/Staff Individual Contributor roles.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left: Direct Info & Quick Copy Cards -->
+        <div class="lg:col-span-5 space-y-5">
+          
+          <!-- Direct Email Card -->
+          <div class="glass-card rounded-2xl p-6 flex items-center justify-between group hover:border-brand-500/40 transition-all">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl flex-shrink-0">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Email</div>
+                <a href="mailto:atish.dhamdhere@gmail.com" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-brand-500 transition-colors">
+                  atish.dhamdhere@gmail.com
+                </a>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('atish.dhamdhere@gmail.com', 'Email copied to clipboard!')" class="p-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors" title="Copy Email">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <!-- Direct Phone Card -->
+          <div class="glass-card rounded-2xl p-6 flex items-center justify-between group hover:border-emerald-500/40 transition-all">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Phone / WhatsApp</div>
+                <a href="tel:+918087998486" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-emerald-500 transition-colors">
+                  +91 80879 98486
+                </a>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('+918087998486', 'Phone number copied to clipboard!')" class="p-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors" title="Copy Phone">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <div class="glass-card rounded-2xl p-6 flex items-center justify-between group hover:border-blue-500/40 transition-all">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl flex-shrink-0">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div>
+                <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">LinkedIn Profile</div>
+                <a href="https://linkedin.com/in/atish-dhamdhere" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-blue-500 transition-colors">
+                  linkedin.com/in/atish-dhamdhere
+                </a>
+              </div>
+            </div>
+            <a href="https://linkedin.com/in/atish-dhamdhere" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors" title="Visit Profile">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- Location Card -->
+          <div class="glass-card rounded-2xl p-6 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl flex-shrink-0">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Location & Mobility</div>
+              <div class="text-sm font-bold text-slate-900 dark:text-white">Pune, Maharashtra, India</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Open to Remote, Hybrid, or Selective Relocation</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Fast Inquiry Form (Pre-populates Email Client) -->
+        <div class="lg:col-span-7">
+          <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-200 dark:border-slate-800">
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Send an Inquiry or Invitation</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">
+              Recruiters and hiring managers: send a direct note or schedule an introductory discussion.
+            </p>
+
+            <form id="contact-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Your Name / Organization</label>
+                  <input type="text" id="name" required placeholder="e.g. Sarah Jenkins (Acme Corp)" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all" />
+                </div>
+                <div>
+                  <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Your Email</label>
+                  <input type="email" id="email" required placeholder="sarah@acme.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all" />
+                </div>
+              </div>
+
+              <div>
+                <label for="role-type" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Role Type / Discussion Topic</label>
+                <select id="role-type" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+                  <option value="Technical Lead Position">Technical Lead Position</option>
+                  <option value="Solution Architect Position">Solution Architect Position</option>
+                  <option value="Hands-on Senior / Staff Engineer (IC)">Hands-on Senior / Staff Engineer (IC)</option>
+                  <option value="Connected Mobility / Automotive Consulting">Connected Mobility / Automotive Consulting</option>
+                  <option value="Other Engineering Inquiry">Other Engineering Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Message / Job Description Overview</label>
+                <textarea id="message" rows="4" required placeholder="Hi Atish, we'd like to talk to you about a Technical Lead role in our Connected Mobility / Mobile platform squad..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all"></textarea>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                <button type="submit" class="px-6 py-3.5 rounded-xl font-semibold bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white shadow-lg shadow-brand-500/25 hover:shadow-xl transition-all flex items-center gap-2">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span>Send via Email Client</span>
+                </button>
+
+                <button type="button" onclick="copyMessageBody()" class="px-4 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors flex items-center gap-2">
+                  <i class="fa-regular fa-copy"></i>
+                  <span>Copy Message Text</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-slate-900 text-slate-400 text-sm border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm">
+          AD
+        </div>
+        <div>
+          <span class="text-white font-semibold">Atish Bhimrao Dhamdhere</span>
+          <span class="block text-xs text-slate-500">Technical Lead & Solution Architect • Pune, India</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#highlights" class="hover:text-white transition-colors">Highlights</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-white transition-colors">Stack</a>
+        <a href="Atish_Bhimrao_Dhamdhere_Resume.pdf" download class="text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1">
+          <i class="fa-solid fa-download"></i> Resume PDF
+        </a>
+      </div>
+
+      <div class="text-xs text-slate-500">
+        &copy; <span id="current-year"></span> Atish Dhamdhere. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script for Theme, Tabs, Toast & Contact Flow -->
+  <script>
+    // Set Year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Theme Management (Light / Dark)
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElement = document.documentElement;
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        htmlElement.classList.add('dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        htmlElement.classList.remove('dark');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+    }
+    initTheme();
+
+    themeToggle.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      });
+    });
+
+    // Resume View Toggle (Interactive HTML vs Embedded PDF)
+    const btnShowHtml = document.getElementById('btn-show-html');
+    const btnShowPdf = document.getElementById('btn-show-pdf');
+    const htmlResumeView = document.getElementById('html-resume-view');
+    const pdfResumeView = document.getElementById('pdf-resume-view');
+
+    btnShowHtml.addEventListener('click', () => {
+      htmlResumeView.classList.remove('hidden');
+      pdfResumeView.classList.add('hidden');
+
+      btnShowHtml.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+      btnShowHtml.classList.remove('text-slate-600', 'dark:text-slate-400');
+
+      btnShowPdf.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+      btnShowPdf.classList.add('text-slate-600', 'dark:text-slate-400');
+    });
+
+    btnShowPdf.addEventListener('click', () => {
+      pdfResumeView.classList.remove('hidden');
+      htmlResumeView.classList.add('hidden');
+
+      btnShowPdf.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+      btnShowPdf.classList.remove('text-slate-600', 'dark:text-slate-400');
+
+      btnShowHtml.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+      btnShowHtml.classList.add('text-slate-600', 'dark:text-slate-400');
+    });
+
+    // Toast Notification Utility
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    let toastTimeout;
+
+    function showToast(message) {
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    // Clipboard Copy Utility
+    function copyToClipboard(text, successMsg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(successMsg || 'Copied to clipboard!');
+      }).catch(err => {
+        showToast('Failed to copy');
+      });
+    }
+
+    // Contact Form Action
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const roleType = document.getElementById('role-type').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent(`[Inquiry: ${roleType}] from ${name}`);
+      const body = encodeURIComponent(`Hi Atish,\n\nName: ${name}\nEmail: ${email}\nTopic/Role: ${roleType}\n\nMessage:\n${message}\n`);
+      
+      showToast('Opening your email client...');
+      window.location.href = `mailto:atish.dhamdhere@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    function copyMessageBody() {
+      const name = document.getElementById('name').value || '[Name]';
+      const email = document.getElementById('email').value || '[Email]';
+      const roleType = document.getElementById('role-type').value;
+      const message = document.getElementById('message').value || '[Message]';
+
+      const fullText = `Name: ${name}\nEmail: ${email}\nTopic/Role: ${roleType}\n\nMessage:\n${message}`;
+      copyToClipboard(fullText, 'Inquiry text copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
